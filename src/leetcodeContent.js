@@ -111,9 +111,7 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
       if (event.data && event.data.type === "LEETCODE_CODE_EXTRACTED") {
         const slug = getQuestionSlugFromURL();
         const question = await fetchLeetCodeProblem(slug);
-        const prompt = `Given below is the implementation of the leetcode problemdone by the user. There are most likely logical error in it 
-        In one short paragraph explain the errors as a computer science fellow student, in proper grammer and in short way that you think are possible regarding logical errors with no text formating including no bold
-        ${event.data.code}
+       const prompt = Read the following code submission for a LeetCode problem. As a computer science student, identify and briefly explain any logical errors you notice in one short paragraph using clear and correct grammar. Do not use any special text formatting or stylistic elements in your explanation. Here is the code: ${event.data.code}
 
             For the following problem: Title: ${question.title} \nDescription: ${question.content}`;
         
